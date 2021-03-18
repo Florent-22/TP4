@@ -8,6 +8,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Entity()
+ * @ORM\Table(name="Stage")
+ * @ORM\HasLifecycleCallbacks() 
  * @ORM\Entity(repositoryClass=StageRepository::class)
  */
 class Stage
@@ -79,6 +82,24 @@ class Stage
      * @ORM\ManyToMany(targetEntity=Tuteur::class, inversedBy="stages")
      */
     private $tuteurs;
+
+    /** 
+     * @ORM\PrePersist()
+     */
+    public function prePersist()
+    {
+        $this->date_creation = new \DateTime();
+        $this->date_modification = new \DateTime();
+    }
+
+    /**  
+     * @ORM\PreUpdate()  
+     */ 
+    public function preUpdate()
+    {
+        $this->date_modification = new \DateTime();
+    }
+
 
     public function __construct()
     {

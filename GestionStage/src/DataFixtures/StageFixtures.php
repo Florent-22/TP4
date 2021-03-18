@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 use App\Entity\Stage;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 
 class StageFixtures extends Fixture implements DependentFixtureInterface
 {
