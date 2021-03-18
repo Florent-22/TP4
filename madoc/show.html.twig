@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Détails du stage <i>{{ stage.poste }}</i> à pourvoir :</h1>
+    <div class="media" style="margin-top: 60px;">
+        <div class="media-body">
+            <div class="row">
+                <div class="col-sm-10">
+                    <h3 class="media-heading"><strong>{{ stage.societe }}</strong> <i>({{ stage.ville }})</i></h3>
+                </div>
+
+                <div class="col-sm-2">
+                    <i class="pull-right">Publié le {{ stage.dateCreation|date('m/d/Y') }}</i>
+                </div>
+            </div>
+
+            <p>
+                <strong>{{ stage.poste }}</strong>
+                <small> - <i>{{ stage.type }}</i></small>
+            </p>
+
+            <p>{{ stage.description|nl2br }}</p>
+
+            <p>
+                <strong>Email de contact :</strong> {{ stage.email }}
+            </p>
+            <p>
+                <strong>Date d'expirtaion :</strong> {{ stage.dateExpiration|date('m/d/Y') }}
+            </p>
+            <p>
+                <strong>Les tuteurs du stage : <strong>
+                <table class="table">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for tuteur in stage.tuteurs %}
+                    <tr>
+                        <td><a href="#">{{ tuteur.nom }}</a></td>
+                        <td>{{ tuteur.prenom }}</td>
+                        <td>{{ tuteur.email }}</td>
+                        <td>{{ tuteur.telephone }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+            </p>
+            <div class="row">
+                <div class="col-sm-12 text-right">
+                    <a class="btn btn-default" href="#">
+                        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                        Liste des stages
+                    </a>
+
+                    <a class="btn btn-primary" href="#">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        Éditer
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

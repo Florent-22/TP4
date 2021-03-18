@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="alert alert-danger">
+        <strong>Avertissement !</strong> Vous êtes en train de supprimer le stage suivant :
+        <ul>
+            <li><strong>Poste : </strong> {{ stage.poste }}</li>
+            <li><strong>Societe : </strong>{{ stage.societe }}</li>
+            <li><strong>Ville : </strong>{{ stage.ville }}</li>
+            <li><strong>Description : </strong>{{ stage.description }}</li>
+            <li><strong>Date de publication : </strong>{{ stage.dateCreation|date('m/d/Y') }}</li>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse">
+    {{ form_start(form, {'attr': {'class': 'navbar-form navbar-left'}}) }}
+    {{ form_widget(form) }}
+        <a href="{{ path('stage.list') }}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>Annuler</a>
+        <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes vous sûr ??')">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        Supprimer
+    </button>
+    {{ form_end(form) }}
+    </div>
+{% endblock %}
