@@ -94,7 +94,7 @@ class Stage
 
     /**  
      * @ORM\PreUpdate()  
-     */ 
+     */
     public function preUpdate()
     {
         $this->date_modification = new \DateTime();

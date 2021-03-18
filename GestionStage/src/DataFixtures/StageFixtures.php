@@ -65,6 +65,38 @@ _lorem;
             ->addTuteur($manager->merge($this->getReference('tuteur-capgemini')));
         $manager->persist($stage3);
 
+        $stage4 = new Stage();
+        $description = <<< _lorem
+At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat_lorem;
+_lorem;
+        $stage4->setCategorie($manager->merge($this->getReference('categorie-programmation')))
+            ->setPoste('Developeur Web ex')
+            ->setDescription($description)
+            ->setType('Temps plein')
+            ->setActif(true)
+            ->setSociete("Capgemini")
+            ->setDateExpiration(new \DateTime('-70 days'))
+            ->setEmail("Bourdon@capgemini.fr")
+            ->setVille("Paris")
+            ->addTuteur($manager->merge($this->getReference('tuteur-capgemini')));
+        $manager->persist($stage4);
+
+        $stage5 = new Stage();
+        $description = <<< _lorem
+At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat_lorem;
+_lorem;
+        $stage5->setCategorie($manager->merge($this->getReference('categorie-programmation')))
+            ->setPoste('Developeur Web 2 ex')
+            ->setDescription($description)
+            ->setType('Temps plein')
+            ->setActif(true)
+            ->setSociete("Capgemini")
+            ->setDateExpiration(new \DateTime('-30 days'))
+            ->setEmail("Bourdon@capgemini.fr")
+            ->setVille("Paris")
+            ->addTuteur($manager->merge($this->getReference('tuteur-capgemini')));
+        $manager->persist($stage5);
+
         $manager->flush();
     }
 

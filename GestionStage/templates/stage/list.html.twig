@@ -11,7 +11,7 @@
 
         {% for stage in stages %}
             <tr>
-                <td><a href="#">{{ stage.poste }}</a></td>
+                <td><a href="{{ path('stage.show', {id: stage.id}) }}">{{ stage.poste }}</a></td>
                 <td>
                     <a href="#">
                         {{ stage.societe }}
