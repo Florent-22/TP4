@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table text-center">
+        <tr>
+            <th class="active text-center">Poste</th>
+            <th class="active text-center">Societe</th>
+            <th class="active text-center">Catégorie</th>
+            <th class="active text-center">Ville</th>
+        </tr>
+
+        {% for stage in stages %}
+            <tr>
+                <td><a href="#">{{ stage.poste }}</a></td>
+                <td>
+                    <a href="#">
+                        {{ stage.societe }}
+                    </a>
+                </td>
+                <td>{{ stage.categorie }}</td>
+                <td>{{ stage.ville }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
